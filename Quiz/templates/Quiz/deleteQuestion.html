@@ -1,0 +1,28 @@
+{% extends 'Quiz/dependencies.html' %}
+
+{% block content %}
+
+<div class="jumbotron container row">
+    <div class="col-md-6">
+        <h1>Delete Question</h1>
+        <div class="card card-body">
+            
+            <form method='POST' style="width: 18rem;">
+                {% csrf_token %}
+                <div class="form-group" style="text-align: left;">
+                  <label for="id" >question:</label>
+                  <input type="text" class="form-control" name="id" id="id" >
+                </div>
+            <br/>
+            
+            
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
