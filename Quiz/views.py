@@ -6,7 +6,7 @@ from . import models
 from django.http import HttpResponse
 
 # Create your views here.
-def home(request):
+def index(request):
     if request.method == 'POST':
         print(request.POST)
         questions=QuesModel.objects.all()
@@ -39,7 +39,7 @@ def home(request):
         context = {
             'questions':questions
         }
-        return render(request,'Quiz/home.html',context)
+        return render(request,'Quiz/index.html',context)
 
 def addQuestion(request):    
     if request.user.is_staff:
@@ -52,7 +52,7 @@ def addQuestion(request):
         context={'form':form}
         return render(request,'Quiz/addQuestion.html',context)
     else: 
-        return redirect('home') 
+        return redirect('index') 
 
 def deleteQuestion(request):
     if request.method =='POST':
@@ -64,7 +64,7 @@ def deleteQuestion(request):
            
         else:
             o1[0].delete()
-        return redirect('home')
+        return redirect('index')
 
     return render(request,'Quiz/deleteQuestion.html')
 
